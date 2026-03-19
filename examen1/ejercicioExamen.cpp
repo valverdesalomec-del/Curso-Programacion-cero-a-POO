@@ -143,7 +143,7 @@ void registrar(string nombres[], float notas[], int &n) {
 //LISTADO 
 void mostrarListado(string nombres[], float notas[], int n) {
     if(n == 0) {
-        cout << "No hay estudiantes registrados.\n";
+        cout << "No hay estudiantes registrados" << endl; 
         return;
     }
 
@@ -163,3 +163,82 @@ float calcularPromedio(float notas[], int n) {
     return suma / n;
 }
 
+//MOSTRAR MAYOR Y MENOR 
+void mayorMenor(string nombres[], float notas[], int n) {
+    if(n == 0) {
+        cout << "No hay estudiantes registrados"<< endl; 
+        return;
+    }
+
+    float mayor = notas[0], menor = notas[0];
+    string nomMayor = nombres[0], nomMenor = nombres[0];
+
+    for(int i = 1; i < n; i++) {
+        if(notas[i] > mayor) {
+            mayor = notas[i];
+            nomMayor = nombres[i];
+        }
+        if(notas[i] < menor) {
+            menor = notas[i];
+            nomMenor = nombres[i];
+        }
+    }
+
+    cout << "Nota mayor: " << mayor << " - " << nomMayor << endl;
+    cout << "Nota menor: " << menor << " - " << nomMenor << endl;
+}
+
+//APROBADOS Y REPROBADOS 
+void aprobadosReprobados(float notas[], int n) {
+    if(n == 0) {
+        cout << "No hay estudiantes registrados"<< endl; 
+        return;
+    }
+
+    int aprobados = 0, reprobados = 0;
+
+    for(int i = 0; i < n; i++) {
+        if(notas[i] >= 14) {
+            aprobados++;
+        } else {
+            reprobados++;
+        }
+    }
+
+    cout << "Aprobados: " << aprobados << endl;
+    cout << "Reprobados: " << reprobados << endl;
+}
+
+//BUSCAR ESTUDIANTE
+
+void buscarEstudiante(string nombres[], float notas[], int n) {
+    if(n == 0) {
+        cout << "No hay estudiantes registrados"<< endl;
+        return;
+    }
+
+    string buscado;
+    bool encontrado = false;
+
+    cout << "Ingrese nombre a buscar: ";
+    cin >> buscado;
+
+    for(int i = 0; i < n; i++) {
+        if(nombres[i] == buscado) {
+            cout << "Nombre: " << nombres[i] << endl;
+            cout << "Nota: " << notas[i] << endl;
+
+            if(notas[i] >= 14)
+                cout << "Estado: Aprobado"<< endl; 
+            else
+                cout << "Estado: Reprobado"<< endl; 
+
+            encontrado = true;
+            break;
+        }
+    }
+
+    if(!encontrado) {
+        cout << "Estudiante no encontrado"<< endl; 
+    }
+}
