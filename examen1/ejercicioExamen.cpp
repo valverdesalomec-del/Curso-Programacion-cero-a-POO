@@ -105,7 +105,8 @@ int main() {
 int menu(){
     int op; 
     cout <<"====== MENU ======" << endl; 
-    cout << "1. Registrar estudiantes y notas"; 
+    cout << "1. Registrar estudiantes y notas"<< endl;
+    cout << "2. Mostrar listado completo"<< endl;
     cout << "3. Mostrar promedio general"<< endl; 
     cout << "4. Mostrar nota mayor y nota menor"<< endl; 
     cout << "5. Mostrar aprobados y reprobados" << endl; 
