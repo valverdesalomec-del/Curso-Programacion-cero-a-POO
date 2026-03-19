@@ -24,7 +24,7 @@ int calcularSuma(int numeros[], int n)
     int suma = 0;
 
     //
-    for (int i = 0; i <= n; i++)
+    for (int i = 0; i < n; i++)
     {
         suma = suma + numeros[i];
     }
@@ -56,8 +56,8 @@ int contarPositivos(int numeros[], int n)
 
     for (int i = 0; i < n; i++)
     {
-        //
-        if (numeros[i] >= 0)
+        //Solo se cuentan los mayores a 0 
+        if (numeros[i] > 0)
         {
             contador++;
         }
