@@ -105,5 +105,61 @@ int main() {
 int menu(){
     int op; 
     cout <<"====== MENU ======" << endl; 
-    cout << ""
+    cout << "1. Registrar estudiantes y notas"; 
+    cout << "3. Mostrar promedio general"<< endl; 
+    cout << "4. Mostrar nota mayor y nota menor"<< endl; 
+    cout << "5. Mostrar aprobados y reprobados" << endl; 
+    cout << "6. Buscar estudiante por nombre" << endl; 
+    cout << "7. Salir" << endl; 
+    cout << "Seleccione una opcion: ";
+    cin >> op; 
+
+    return op; 
 }
+
+//REGISTRO DE DATOS 
+void registrar(string nombres[], float notas[], int &n) {
+    do {
+        cout << "Ingrese cantidad de estudiantes (1-20): ";
+        cin >> n;
+    } while(n < 1 || n > 20);
+
+    for(int i = 0; i < n; i++) {
+        cout << "Nombre del estudiante " << i+1 << ": ";
+        cin >> nombres[i];
+
+        while(nombres[i] == "") {
+            cout << "Nombre invalido. Ingrese nuevamente: ";
+            cin >> nombres[i];
+        }
+
+        do {
+            cout << "Nota (0-20): ";
+            cin >> notas[i];
+        } while(notas[i] < 0 || notas[i] > 20);
+    }
+}
+
+//LISTADO 
+void mostrarListado(string nombres[], float notas[], int n) {
+    if(n == 0) {
+        cout << "No hay estudiantes registrados.\n";
+        return;
+    }
+
+    for(int i = 0; i < n; i++) {
+        cout << i+1 << ". " << nombres[i] << " - " << notas[i] << endl;
+    }
+}
+
+// PROMEDIO 
+float calcularPromedio(float notas[], int n) {
+    float suma = 0;
+
+    for(int i = 0; i < n; i++) {
+        suma += notas[i];
+    }
+
+    return suma / n;
+}
+
